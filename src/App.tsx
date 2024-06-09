@@ -11,6 +11,9 @@ import * as AuthService from "./authent/auth.service";
 import EventBus from "./components/common/EventBus";
 import FooterContent from './components/FooterContent';
 import Home from './components/Home';
+import Login from './components/Login';
+import Register from './components/Register';
+import DetailPetInfo from './components/DetailPetInfo';
 
 //added
 // import { LogoutOutlined, HomeOutlined,DashboardOutlined,InfoCircleOutlined,HeartFilled } from '@ant-design/icons';
@@ -18,13 +21,11 @@ import Home from './components/Home';
 // import UserType from './types/user.type';
 
 // import EventBus from "./components/common/EventBus";
+// import Login from "./components/Login";
+// import Register from "./components/Register";
 
 
 // //import Landing from "./components/Landing"
-
-
-// import Login from "./components/Login";
-// import Register from "./components/Register";
 
 // import Home from './components/Home';
 // import Dashboard from './components/Dashboard';
@@ -72,15 +73,12 @@ export default function App() {
                 {/* icon and link to index page */}
                 <Link to={"/"} >
                     <img
-                    src="/src/assets/small_Coventry_University.png"
+                    src="/src/assets/logo-no-background_small.png"
                     alt="profile-img"
                     className="profile-img-card"
                     />
                 </Link>
-                {/* Home icon to index page  */}
-                <Link to="/">
-                <HomeOutlined style={{ fontSize: '32px', }} />
-                </Link>
+                <p></p>
                 {/* Dashboard icon to dashboard page */} 
                 <Link to="/dashboard">
                 <DashboardOutlined style={{ fontSize: '32px', }}/>
@@ -134,6 +132,10 @@ export default function App() {
             <Routes>
             <Route index element={ <Home /> } />
 
+
+            <Route path="/register" element={<Register />} />
+            <Route path="/:aid" element={<DetailPetInfo />} />
+
             {/* <Route path="/dashboard" element={<Dashboard />}  />  
             <Route path="/about" element={<About />}  />
             <Route path="/:aid" element = {<DetailArticle /> } />            
@@ -145,13 +147,15 @@ export default function App() {
         </Content>
 
         <Footer>
-            <FooterContent />
+            
+           
             <img
-                src="/src/assets/SHAPE_logo.png"
+                src="/src/assets/logo-black_small.png"
                 alt="profile-img"
                 className="profile-img-card"
-                style={{float:'right'}}
-            />
+                //make the img in the middle
+                style={{display: 'block', marginLeft: 'auto', marginRight: 'auto'}}
+            /> <p></p> <FooterContent />
         </Footer>
 
         <FloatButton.BackTop />

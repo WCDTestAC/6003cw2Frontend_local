@@ -43,10 +43,10 @@ const PetInfo = () => {
       <>
         <Row gutter={[16,16]} style={{marginLeft:"15px"}}>
           {
-            (petinfos as Array<any>) && petinfos.map(({id, title, imageurl, links})=> (
+            (petinfos as Array<any>) && petinfos.map(({id, petname, imageurl, links})=> (
             <Col key={id}>                                          
-             <Card title={title} style={{width: 300}}
-                   cover={<img alt="example" src={imageurl} />} hoverable
+             <Card title={petname} style={{width: 300}}
+                   cover={<img alt="petImg" src={imageurl} />} hoverable
                    actions={[
                     <PostIcon type="like" countLink={links.likes} id={id} />,
                     <Displaycomment    msgLink={links.msg} id={id}/>,
@@ -61,7 +61,8 @@ const PetInfo = () => {
               </Col>
             ))
           }
-        </Row></>
+        </Row>
+        </>
       
     )
     }
