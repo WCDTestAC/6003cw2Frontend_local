@@ -17,7 +17,7 @@ import Register from './components/Register';
 import DetailPetInfo from './components/DetailPetInfo';
 import AboutUs from './components/AboutUs';
 import Profile from './components/Profile';
-import FavPage from './components/favpage';
+import FavPage from './components/FavPets';
 
 //added
 // import { LogoutOutlined, HomeOutlined,DashboardOutlined,InfoCircleOutlined,HeartFilled } from '@ant-design/icons';

@@ -7,8 +7,8 @@ import { UserOutlined } from '@ant-design/icons';
 import { getCurrentUser } from "../authent/auth.service";
 
 import SearchUser from './userSearch'
-import ImageUpload from './ImageUpload'
-import EditForm from "./EditForm";
+import ImageUploader from './ImageUploader'
+import UpdateForm from "./UpdateForm";
 
 
 const Profile: React.FC = () => {
@@ -65,7 +65,7 @@ console.log('current user' + JSON.stringify(currentUser))
       {/* upload image function */}
       <Col span={18}>
         <div style={{marginLeft:"15px",marginBottom:"15px"}}>
-      { currentUser.role=="admin"&&  <ImageUpload />}
+      { currentUser.role=="admin"&&  <ImageUploader />}
       </div>
       </Col>
      
@@ -74,7 +74,7 @@ console.log('current user' + JSON.stringify(currentUser))
       <Col span={18}>
         
         <div style={{marginLeft:"15px",marginBottom:"15px"}}>
-        { currentUser.role=="admin"&&  <EditForm  isNew={true} />}
+        { currentUser.role=="admin"&&  <UpdateForm  isNew={true} />}
         { currentUser.role=="admin"&&  <h3> Create Pet Record</h3>}
         </div>
       </Col>    

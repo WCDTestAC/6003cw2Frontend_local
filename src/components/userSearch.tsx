@@ -78,7 +78,6 @@ function handleChange(value:any)  {
         <Option value="all">without filter (get all record)</Option>
         <Option value="username" >username</Option>
         <Option value="email">email</Option>
-        {/* <Option value="username&fields=email">Get all-filter by username & email</Option> */}
         </Select>	      
   {isSearchOK&&<Table dataSource={usersData}>
    <Column title="ID" dataIndex="id" key="id" />

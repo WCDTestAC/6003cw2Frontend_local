@@ -5,7 +5,7 @@ import PetInfo from './PetInfo';
 const Home = () => {
   return (<>
   <p></p>
-  <h2 style={{color:"#135200",marginLeft:"25px"}}><strong>Dog matching system</strong></h2>
+  <h2 style={{color:"#135200",marginLeft:"25px"}}><strong>Matching playform</strong></h2>
         <PetInfo />
   </>)
 }

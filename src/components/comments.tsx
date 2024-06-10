@@ -53,14 +53,14 @@ const addComment:any =  (event:any)  => {
           })                   
       .then(reponse =>{ if(reponse.data.message==="added")
       {
-       alert("comment added")
+       alert("Comment added")
        navigate("/");
        window.location.reload();}
          else(alert("you have post comment already"))
       })
       .catch(err => {
-      console.log(`${props.msgLink} Check network problems pls. ${props.id}`);
-         alert("Check network problems");
+      console.log(`${props.msgLink} Please check network problems pls. ${props.id}`);
+        alert("Network may be have some problems");
       })
       )}
                  
@@ -91,7 +91,7 @@ Icon=DeleteFilled;
           window.location.reload();}       
       })
       .catch(err => {
-      console.log(`${props.type} Check network problems pls. ${props.id}`);
+      console.log(`${props.type} Check network problems please. ${props.id}`);
          alert("Check network problems");
  })
     }

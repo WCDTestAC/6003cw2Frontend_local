@@ -1,6 +1,7 @@
 import 'antd/dist/reset.css';
 import React from 'react';
-import EditForm from './EditForm';
+// import UpdateForm from './UpdateForm';
+import UpdateForm from './UpdateForm';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button,Spin, Col, Card } from 'antd';
 import { api } from './common/http-common';
@@ -22,7 +23,6 @@ React.useEffect(() => {
   console.log(`path: ${api.uri}/petinfos/${aid}`)
     axios.get(`${api.uri}/petinfos/${aid}`)
       .then((res) => {
-      //  console.log('petinfo' ,petinfo)
         setPetinfo(res.data);
         localStorage.setItem('e',JSON.stringify(res.data))  
         setLoading(false);
@@ -31,7 +31,6 @@ React.useEffect(() => {
       })  
       .catch((error) => {
         console.log('Error fetching petinfo details ')
-       // console.error('Error fetching petinfo details:', error);
       });
   }, [aid]);
   
@@ -49,36 +48,33 @@ React.useEffect(() => {
   const handleDelete = () => {
   
     setTheme('filled')
-// console.log('fav link arr ', fav.links.fav)
-// console.log('fav link ', fav)
-  axios.delete(`${api.uri}/petinfos/${aid}`, {
+    axios.delete(`${api.uri}/petinfos/${aid}`, {
        
         headers: {
             "Authorization": `Basic ${localStorage.getItem('aToken')}`
           }
         }        
     )
-      .then((results) =>{ console.log('respone ',JSON.stringify(results.data.message))
+    .then((results) =>{ console.log('respone ',JSON.stringify(results.data.message))
         if(results.data.message==="removed")
-      {  
-          alert("This petinfo is removed from the blog list")
-          navigate("/");
-          window.location.reload();}
-        
-      })
-      .catch((err) => {
+          {  
+            alert("This petinfo is removed from the blog list")
+            navigate("/");
+            window.location.reload();
+          }  
+    })
+    .catch((err) => {
       console.log(`Check network problems pls. `);
-         alert("Check network problems");
-  })      
+      alert("Check network problems");
+    })      
 }
 
        
 if(loading){
-const antIcon = <LoadingOutlined style={{ fontSize: 48}} spin />
-return(<Spin indicator={antIcon} />);
+  const antIcon = <LoadingOutlined style={{ fontSize: 48}} spin />
+  return(<Spin indicator={antIcon} />);
 }
 else {
-
   const Icon = getIcon(theme)
   return (
     <>
@@ -88,10 +84,8 @@ else {
              <Card title={petinfo.petname} style={{width: 300,marginLeft:"100px"}}
                    cover={<img alt="put image here" src={petinfo.imageurl} />} hoverable
                   
-                   actions={[
-                    //print title "Edit and Delete"
-                    
-                    (currentUser&&currentUser.role==="admin"&&currentUser.id===petinfo.authorid)&&<EditForm  isNew={false} aid={aid} />,  
+                   actions={[                    
+                    (currentUser&&currentUser.role==="admin"&&currentUser.id===petinfo.authorid)&&<UpdateForm  isNew={false} aid={aid} />,  
                     (currentUser&&currentUser.role==="admin"&&currentUser.id===petinfo.authorid)&& <Icon  style={{ fontSize: '32px', }} onClick={()=>handleDelete()}/>
                   ]}
               >               
@@ -108,13 +102,10 @@ else {
                         style={{float:'right'}}
                     />
                   </div> 
-                 
               </Card>   
             </Col>
-      
     </>
   );
-
  }
 }
 

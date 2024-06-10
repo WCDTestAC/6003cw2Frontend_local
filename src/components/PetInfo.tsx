@@ -5,7 +5,7 @@ import { Card, Col, Row, Spin } from 'antd';
 import { api } from './common/http-common';
 import axios from 'axios';
 import {LoadingOutlined} from '@ant-design/icons';
-import PostIcon from './posticon';
+import PostIcon from './PostIcon';
 import ShowComment from './comments';
 
 
@@ -34,7 +34,7 @@ const PetInfo = () => {
     
   } else {
     if(!petinfos){
-      return(<div>There is no PetInfo available now.</div>)
+      return(<div>There is no Pet Information available now.</div>)
     } else {
        
     
@@ -48,8 +48,7 @@ const PetInfo = () => {
              <Card title={petname} style={{width: 300}}
                    cover={<img alt="petImg" src={imageurl} />} hoverable
                    actions={[
-                    // <PostIcon type="like" countLink={links.likes} id={id} />,
-                    <ShowComment    msgLink={links.msg} id={id}/>,
+                    <ShowComment msgLink={links.msg} id={id}/>,
                     <PostIcon type="heart" FavLink={links.fav} id={id}/>
                   
                   ]} 

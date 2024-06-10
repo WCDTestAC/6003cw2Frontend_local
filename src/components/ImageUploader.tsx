@@ -5,7 +5,7 @@ import { Upload, Button, message, Alert,Typography } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import { api } from './common/http-common';
 
-class ImageUpload extends React.Component {
+class ImageUploader extends React.Component {
  constructor(props:any) {
   super(props);
   this.state = {
@@ -15,7 +15,7 @@ class ImageUpload extends React.Component {
     isUploadOk: false,}
     }      
   
-  handleUpload = () => {
+  uploadImg = () => {
     const { fileList } = this.state;
     const formData = new FormData();
      fileList.forEach(file => {
@@ -84,11 +84,11 @@ class ImageUpload extends React.Component {
         <p></p>
         <Title level={3}  style={{color:"#0032b3"}}>Select and Upload Pet Image</Title>
         <Upload {...props}>
-          <Button icon={<UploadOutlined />}>Select File</Button>
+          <Button icon={<UploadOutlined />}>Select your Image</Button>
         </Upload>
         <Button
           type="primary"
-          onClick={this.handleUpload}
+          onClick={this.uploadImg}
           disabled={fileList.length === 0}
           loading={uploading}
           style={{ marginTop: 16 }}
@@ -96,11 +96,15 @@ class ImageUpload extends React.Component {
           {uploading ? 'Uploading' : 'Start Upload'}
         </Button>
                       {
-                      this.state.isUploadOk&&<div><p style={{ color: 'red' }}>Image uploaded successfully: </p><Alert message= {JSON.stringify(this.state.imgPosted)}  type="success" /> </div>}
+                      this.state.isUploadOk&&
+                      <div><p style={{ color: 'red' }}>Image uploaded successfully: </p>
+                        <Alert message= {JSON.stringify(this.state.imgPosted)}  type="success" /> 
+                      </div>
+                      }
       
       </div>
       </>
     );
   }
 }
-export default ImageUpload;
+export default ImageUploader;
