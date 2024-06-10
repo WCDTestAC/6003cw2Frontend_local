@@ -6,7 +6,7 @@ import { api } from './common/http-common';
 import axios from 'axios';
 import {LoadingOutlined} from '@ant-design/icons';
 import PostIcon from './posticon';
-import Displaycomment from './comments';
+import ShowComment from './comments';
 
 
 
@@ -49,7 +49,7 @@ const PetInfo = () => {
                    cover={<img alt="petImg" src={imageurl} />} hoverable
                    actions={[
                     <PostIcon type="like" countLink={links.likes} id={id} />,
-                    <Displaycomment    msgLink={links.msg} id={id}/>,
+                    <ShowComment    msgLink={links.msg} id={id}/>,
                     <PostIcon type="heart" FavLink={links.fav} id={id}/>
                   
                   ]} 

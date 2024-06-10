@@ -5,7 +5,7 @@ import { Form, Input, Button, Checkbox, Modal} from 'antd';
 import { LoginOutlined, UserOutlined, LockOutlined } from '@ant-design/icons';
 import { login } from "../authent/auth.service";
 
-  const Login: React.FC = () => {
+  const LoginPart: React.FC = () => {
 
     let navigate: NavigateFunction = useNavigate();
     const [loading, setLoading] = useState<boolean>(false);
@@ -32,7 +32,7 @@ import { login } from "../authent/auth.service";
                 error.message ||
                   error.toString();
             
-            window.alert(`Sorry ${username} you may not have account in our system...... \nPlease try again or register first!`)
+            window.alert(`User : ${username}, Sorry you may not have account in our system...... \nPlease try again \nIf not have the account please register`)
             console.log(error.toString());     
             
             setLoading(false);
@@ -47,10 +47,10 @@ import { login } from "../authent/auth.service";
   return (
     <>
       <Button icon={<LoginOutlined />} onClick={()=>{setToShow(true)}} />
-      <Modal open={toShow} onCancel={()=>{setToShow(false)}} title="Welcome Blogger" footer={[]}> 
+      <Modal open={toShow} onCancel={()=>{setToShow(false)}} title="Welcome to Canine Shelter" footer={[]}> 
 
         <Form style={{margin: "5px"}} 
-              name="normal_login"
+              name="login_form"
               layout="vertical"
               wrapperCol={{span:8}}
               className="login-form"
@@ -66,11 +66,11 @@ import { login } from "../authent/auth.service";
             rules={[
               {
                 required: true,
-                message: 'Please input your Username!',
+                message: 'Please input the Username!',
               },
             ]}
           >
-          <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+          <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="User Name" />
           </Form.Item>
 
           {/* Form password part */}
@@ -80,7 +80,7 @@ import { login } from "../authent/auth.service";
             rules={[
               {
                 required: true,
-                message: 'Please input your Password!',
+                message: 'Please input the Password!',
               },
             ]}
           >
@@ -96,9 +96,9 @@ import { login } from "../authent/auth.service";
 
             {/* Form remember tick */}
             <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox>Remember me</Checkbox>
+              <Checkbox>Remember</Checkbox>
             </Form.Item>
-            
+            <p></p>
             <a className="login-form-forgot" href="">
               Forgot password
             </a>
@@ -106,11 +106,11 @@ import { login } from "../authent/auth.service";
           </Form.Item>
 
           {/*Choice for Login or register  */}
-          <Form.Item>
-            <Button type="primary" htmlType="submit" className="login-form-button">
-              Log in
+          <Form.Item >
+            <Button type="primary" htmlType="submit" className="login-form-button" >
+              Log in 
             </Button>
-            Or <a href="/register">register now!</a>
+            Or <a href="/register"> Register</a>
           </Form.Item>
 
         </Form>
@@ -122,4 +122,4 @@ import { login } from "../authent/auth.service";
 };
 
 
-export default Login;
+export default LoginPart;

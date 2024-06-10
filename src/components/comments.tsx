@@ -4,12 +4,14 @@ import { Comment } from '@ant-design/compatible';
 import { DeleteOutlined, DeleteFilled, MessageOutlined, } from '@ant-design/icons';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { getCurrentUser } from "../authent/auth.service";
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 
+import { getCurrentUser } from "../authent/auth.service";
 
-const DisplayComment = (props:any) => {    
-const [article_comments, setComments] = React.useState<any>([]);
+
+
+const ShowComment = (props:any) => {    
+const [pet_comments, setComments] = React.useState<any>([]);
 const [toShow, setToShow] = React.useState(false); 
 const currentUser = getCurrentUser();
 const navigate: NavigateFunction = useNavigate();
@@ -27,7 +29,7 @@ if(currentUser){
   axios.get(props.msgLink)
     .then((res)=>{
       setComments(res.data);  
-      console.log('no of msg ',article_comments.length)                    
+      console.log('no of msg ',pet_comments.length)                    
     }) 
     .catch(err => {
       console.log(`icon error for msg  `)
@@ -65,7 +67,7 @@ const addComment:any =  (event:any)  => {
 }
 
 
-const  removeComm = (msgtxt:any) =>
+const  deleteComment = (msgtxt:any) =>
 {
 Icon=DeleteFilled;
   const raw = JSON.stringify({"messagetxt": `${msgtxt}`})
@@ -84,7 +86,7 @@ Icon=DeleteFilled;
         console.log('respone ',JSON.stringify(response.data.message))
         if(response.data.message==="removed")
       {     
-          alert("This article commentis removed by admin")
+          alert("This pet commentis removed by admin")
           navigate("/");
           window.location.reload();}       
       })
@@ -105,28 +107,27 @@ Icon=DeleteFilled;
   <List   
     className="comment-list"
     itemLayout="horizontal"
-    dataSource={article_comments}
+    dataSource={pet_comments}
     renderItem={(item:any) => (
     <Flex gap="middle" align='center'  justify = 'flex-start' >
      <li> 
         <Comment 
-        //  actions={actions}
           author={item.username}
-         // avatar={item.avatar}
         content={item.messagetxt}   
         datetime={item.datemodified} />                               
       </li>
-       {isAdmin&&<Icon onClick={() =>removeComm(item.messagetxt)}  />}          
+       {isAdmin&&<Icon onClick={() =>deleteComment(item.messagetxt)}  />}          
     </Flex> 
      )}
   /> 
-  <Input  placeholder="Pls. login to enter your comments here" name='input_msg' disabled={islogin? false:true}  allowClear
-            onPressEnter={addComment} />
-   </Modal>
+  <Input  name='input_msg' disabled={islogin? false:true} onPressEnter={addComment} allowClear
+          placeholder={islogin? "Input your comment and press enter !":"Plsase to login and comments !"}    
+  />
+  </Modal>
   </> 
 )
 }
 
 
 
-export default DisplayComment
+export default ShowComment

@@ -4,7 +4,7 @@ import { Buffer } from 'buffer';
 
 export const register = async (username: string, email: string, password: string, authCode:string) => {
   return await axios
-    .post(api.uri + "/users", {
+    .post(api.uri + "/userlist", {
     username,
     email,
     password,
@@ -20,7 +20,7 @@ export const login = async (username: string, password: string) => {
   console.log('access_token '+ access_token)
 
   let data = '';
-  let path:string = api.uri + "/users/login";  
+  let path:string = api.uri + "/userlist/login";  
   console.log('path '+ path)
 
   let config = {

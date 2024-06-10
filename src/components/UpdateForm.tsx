@@ -4,8 +4,10 @@ import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { Form, Input, Button,  Modal, Typography} from 'antd';
 import { EditOutlined,EditFilled } from '@ant-design/icons';
 import axios from "axios";
+
 import { api } from './common/http-common';
 import { getCurrentUser } from "../authent/auth.service";
+
 const { Title } = Typography;
 const { TextArea } = Input;
     
@@ -18,7 +20,7 @@ const EditForm: React.FC = (props:any) => {
    // console.log("aa  ", aa)
     //console.log('aa.title ',aa.title)
     const contentRules = [
-        {required: true, message: 'Please input somethings'}    
+        {required: true, message: 'Please input / change the value here '}    
       ]
       
       const handleFormSubmit  = (values: any) => {

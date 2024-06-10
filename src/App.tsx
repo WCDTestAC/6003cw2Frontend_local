@@ -11,9 +11,11 @@ import * as AuthService from "./authent/auth.service";
 import EventBus from "./components/common/EventBus";
 import FooterContent from './components/FooterContent';
 import Home from './components/Home';
-import Login from './components/Login';
+import LoginPart from './components/LoginPart';
 import Register from './components/Register';
+
 import DetailPetInfo from './components/DetailPetInfo';
+import AboutUs from './components/AboutUs';
 
 //added
 // import { LogoutOutlined, HomeOutlined,DashboardOutlined,InfoCircleOutlined,HeartFilled } from '@ant-design/icons';
@@ -84,7 +86,7 @@ export default function App() {
                 <DashboardOutlined style={{ fontSize: '32px', }}/>
                 </Link>
                 {/* About icon to about page */}
-                <Link to="/about">
+                <Link to="/aboutus">
                 <InfoCircleOutlined style={{ fontSize: '32px', }}/>
                 </Link>
             
@@ -119,7 +121,7 @@ export default function App() {
                 // if user is not logged in
                 <div>
                     <Space> 
-                        <Login />
+                        <LoginPart />
                         <Link to="/register">Register</Link> 
                     </Space>
                 </div>
@@ -135,13 +137,25 @@ export default function App() {
 
             <Route path="/register" element={<Register />} />
             <Route path="/:aid" element={<DetailPetInfo />} />
+            <Route path="/aboutus" element={<AboutUs />} />
 
-            {/* <Route path="/dashboard" element={<Dashboard />}  />  
+            {/* 
+            added
             <Route path="/about" element={<About />}  />
-            <Route path="/:aid" element = {<DetailArticle /> } />            
+            <Route path="/:aid" element = {<DetailArticle /> } />  
+            <Route path="/register" element={<Register />} /> 
+            
+            not added    
             <Route path="/profile" element={<Profile />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/favpage" element={<FavPage />} />	 */}
+            <Route path="/favpage" element={<FavPage />} />	 
+
+            not add
+            <Route path="/dashboard" element={<Dashboard />}  />  
+            
+                     
+            
+            
+            */}
 
             </Routes>
         </Content>
