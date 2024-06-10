@@ -48,7 +48,7 @@ const PetInfo = () => {
              <Card title={petname} style={{width: 300}}
                    cover={<img alt="petImg" src={imageurl} />} hoverable
                    actions={[
-                    //<PostIcon type="like" countLink={links.likes} id={id} />,
+                    // <PostIcon type="like" countLink={links.likes} id={id} />,
                     <ShowComment    msgLink={links.msg} id={id}/>,
                     <PostIcon type="heart" FavLink={links.fav} id={id}/>
                   

@@ -17,6 +17,7 @@ import Register from './components/Register';
 import DetailPetInfo from './components/DetailPetInfo';
 import AboutUs from './components/AboutUs';
 import Profile from './components/Profile';
+import FavPage from './components/favpage';
 
 //added
 // import { LogoutOutlined, HomeOutlined,DashboardOutlined,InfoCircleOutlined,HeartFilled } from '@ant-design/icons';
@@ -83,13 +84,10 @@ export default function App() {
                 </Link>
                 <p></p>
                 {/* Dashboard icon to dashboard page */} 
-                <Link to="/dashboard">
+                {/* <Link to="/dashboard">
                 <DashboardOutlined style={{ fontSize: '32px', }}/>
-                </Link>
-                {/* About icon to about page */}
-                <Link to="/aboutus">
-                <InfoCircleOutlined style={{ fontSize: '32px', }}/>
-                </Link>
+                </Link> */}
+
             
             </Space>
             </div>
@@ -105,6 +103,11 @@ export default function App() {
                     <Link to={"/profile"} >
                         {currentUser.username }
                     </Link>
+
+                    {/* About icon to about page */}
+                <Link to="/aboutus">
+                <InfoCircleOutlined style={{ fontSize: '32px', }}/>
+                </Link>
 
                     {/* heart mark and user favourite page */}
                     <Link to="/favpage">
@@ -140,16 +143,17 @@ export default function App() {
             <Route path="/:aid" element={<DetailPetInfo />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/profile" element={<Profile />} />
-
+            <Route path="/favpage" element={<FavPage />} />	
             {/* 
             added
             <Route path="/about" element={<About />}  />
             <Route path="/:aid" element = {<DetailArticle /> } />  
             <Route path="/register" element={<Register />} /> 
             <Route path="/profile" element={<Profile />} />
+            <Route path="/favpage" element={<FavPage />} />	
             not added    
             
-            <Route path="/favpage" element={<FavPage />} />	 
+             
 
             not add
             <Route path="/dashboard" element={<Dashboard />}  />  

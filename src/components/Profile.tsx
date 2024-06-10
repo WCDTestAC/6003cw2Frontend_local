@@ -6,8 +6,8 @@ import { UserOutlined } from '@ant-design/icons';
 
 import { getCurrentUser } from "../authent/auth.service";
 
-// import SearchUser from './userSearch'
-// import ImageUpload from './ImageUpload'
+import SearchUser from './userSearch'
+import ImageUpload from './ImageUpload'
 import EditForm from "./EditForm";
 
 
@@ -57,17 +57,19 @@ console.log('current user' + JSON.stringify(currentUser))
     </div>
     </Col>
     {/* To search user if login by admin */}
-    {/* <Col span={12}>
-      { currentUser.role=="admin"&& <SearchUser authbasic={ `${currentUser.atoken}`}/>}
-    </Col> */}
+    <Col span={12}>
+      { currentUser.role=="admin"&& 
+      <SearchUser authbasic={ `${currentUser.atoken}`}/>}
+    </Col>
 
       {/* upload image function */}
-      {/* <Col span={18}>
+      <Col span={18}>
         <div style={{marginLeft:"15px",marginBottom:"15px"}}>
       { currentUser.role=="admin"&&  <ImageUpload />}
       </div>
       </Col>
-      */}
+     
+
      {/* For admin to create the pet record */}
       <Col span={18}>
         
