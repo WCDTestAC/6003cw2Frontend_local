@@ -22,32 +22,30 @@ const EditForm: React.FC = (props:any) => {
       ]
       
       const handleFormSubmit  = (values: any) => {
-        const t = values.title;
-        const a = values.alltext;
-        const s = values.summary;
+        const t = values.petname;
+        const a = values.petsummary;
         const d = values.description;
         const u = values.imageurl;
         const currentUser = getCurrentUser();
        
        // console.log('new pet '+ t,a,s,d,u,currentUser.id);
         const postPet = {
-          title: t,
-          alltext: a,
-          summary:s,
+          petname: t,
+          petsummary: a,
           description:d,
           imageurl:u,
           authorid: currentUser.id
         }
        
         if(props.isNew==false){
-       console.log(`path: ${api.uri}/articles${props.aid}`)
-        axios.put(`${api.uri}/articles/${props.aid}`, postPet, {
+       console.log(`path: ${api.uri}/petinfos${props.aid}`)
+        axios.put(`${api.uri}/petinfos/${props.aid}`, postPet, {
             headers: {
               'Authorization': `Basic ${localStorage.getItem('aToken')}`
             }
           })
             .then((res)=> {
-            alert("Article updated")
+            alert("Pet information updated")
             console.log(res.data);
             localStorage.removeItem("e");
              navigate("/");
@@ -55,14 +53,14 @@ const EditForm: React.FC = (props:any) => {
         });
       }
        else
-       {console.log(`path: ${api.uri}/articles`)
-        axios.post(`${api.uri}/articles`, postPet, {
+       {console.log(`path: ${api.uri}/petinfos`)
+        axios.post(`${api.uri}/petinfos`, postPet, {
         headers: {
           'Authorization': `Basic ${localStorage.getItem('aToken')}`
         }
       })
         .then((res)=> {
-        alert("New Article created")
+        alert("New Pet created")
         console.log(res.data);
          navigate("/");
         window.location.reload();
@@ -72,18 +70,17 @@ const EditForm: React.FC = (props:any) => {
   return (
     <>
       <Button icon={<EditOutlined />} onClick={()=>{setToShow(true)}} />
-      <Modal open={toShow} onCancel={()=>{setToShow(false)}} title="Welcome Blogger" footer={[]}> 
+      <Modal open={toShow} onCancel={()=>{setToShow(false)}} title="Welcome User" footer={[]}> 
     <p></p>
-    {props.isNew?(<Title level={3} style={{color:"#0032b3"}}>Create New Article</Title>):(<Title level={3} style={{color:"#0032b3"}}>Update Article</Title>)}
+    {props.isNew?(<Title level={3} style={{color:"#0032b3"}}>Create New Pet record</Title>):
+                 (<Title level={3} style={{color:"#0032b3"}}>Update Pet information</Title>)}
     <Form name="pet" onFinish={(values)=>handleFormSubmit(values)}>
-      <Form.Item name="title" label="Title" rules={contentRules}>
-      {props.isNew? ( <Input  />):( <Input defaultValue={!props.isNew&&aa.title} />)}
+
+      <Form.Item name="petname" label="Title" rules={contentRules}>
+      {props.isNew? ( <Input  />):( <Input defaultValue={!props.isNew&&aa.petname} />)}
       </Form.Item>
-      <Form.Item name="alltext" label="About the pet" rules={contentRules}>
-      {props.isNew? ( <TextArea rows={2}  />):( <TextArea rows={2} defaultValue={!props.isNew&&aa.alltext} />)}       
-      </Form.Item>
-      <Form.Item name="summary" label="Summary" >
-      {props.isNew? ( <TextArea rows={2}  />):( <TextArea rows={2} defaultValue={!props.isNew&&aa.summary} />)}
+      <Form.Item name="petsummary" label="About the pet" rules={contentRules}>
+      {props.isNew? ( <TextArea rows={2}  />):( <TextArea rows={2} defaultValue={!props.isNew&&aa.petsummary} />)}       
       </Form.Item>
       <Form.Item name="description" label="Detail Description" >
       {props.isNew? ( <TextArea rows={2}  />):( <TextArea rows={2} defaultValue={!props.isNew&&aa.description} />)}
@@ -92,8 +89,9 @@ const EditForm: React.FC = (props:any) => {
       {props.isNew? ( <Input  />):( <Input defaultValue={!props.isNew&&aa.imageurl} />)}  
       </Form.Item>
       <Form.Item>
-        <Button type="primary" htmlType="submit">Submit</Button>
+        <Button type="primary" htmlType="submit">Submit the change</Button>
       </Form.Item>     
+
     </Form>
     </Modal>
     </>

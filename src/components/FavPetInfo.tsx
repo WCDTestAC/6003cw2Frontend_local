@@ -120,13 +120,13 @@ const FavPetInfo = (props:any) => {
       
         <Row gutter={[16,16]}>
           {
-            petinfos&& petinfos.map(({id, title, alltext, imageurl, links})=> (
+            petinfos&& petinfos.map(({id, title, petsummary, imageurl, links})=> (
             <Col  key={id}>                            
              <Card title={title} style={{width: 300}}
                    cover={<img alt="example" src={imageurl} />} hoverable
                    actions={[
-                    <PostIcon type="like" countLink={links.likes} id={id}/>,
-                    <ShowComment    msgLink={links.msg} id={id}/>,
+                    //<PostIcon type="like" countLink={links.likes} id={id}/>,
+                    //<ShowComment    msgLink={links.msg} id={id}/>,
                     <PostIcon type="heart"  />,
                     <Icon onClick={()=>handleDelete({links})}/>
                   ]} 

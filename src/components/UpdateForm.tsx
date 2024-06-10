@@ -25,7 +25,7 @@ const EditForm: React.FC = (props:any) => {
       
       const handleFormSubmit  = (values: any) => {
         const t = values.title;
-        const a = values.alltext;
+        const a = values.petsummary;
         const s = values.summary;
         const d = values.description;
         const u = values.imageurl;
@@ -34,7 +34,7 @@ const EditForm: React.FC = (props:any) => {
        // console.log('new pet '+ t,a,s,d,u,currentUser.id);
         const postPet = {
           title: t,
-          alltext: a,
+          petsummary: a,
           summary:s,
           description:d,
           imageurl:u,
@@ -42,8 +42,8 @@ const EditForm: React.FC = (props:any) => {
         }
        
         if(props.isNew==false){
-       console.log(`path: ${api.uri}/articles${props.aid}`)
-        axios.put(`${api.uri}/articles/${props.aid}`, postPet, {
+       console.log(`path: ${api.uri}/petinfos${props.aid}`)
+        axios.put(`${api.uri}/petinfos/${props.aid}`, postPet, {
             headers: {
               'Authorization': `Basic ${localStorage.getItem('aToken')}`
             }
@@ -57,8 +57,8 @@ const EditForm: React.FC = (props:any) => {
         });
       }
        else
-       {console.log(`path: ${api.uri}/articles`)
-        axios.post(`${api.uri}/articles`, postPet, {
+       {console.log(`path: ${api.uri}/petinfos`)
+        axios.post(`${api.uri}/petinfos`, postPet, {
         headers: {
           'Authorization': `Basic ${localStorage.getItem('aToken')}`
         }
@@ -81,8 +81,8 @@ const EditForm: React.FC = (props:any) => {
       <Form.Item name="title" label="Title" rules={contentRules}>
       {props.isNew? ( <Input  />):( <Input defaultValue={!props.isNew&&aa.title} />)}
       </Form.Item>
-      <Form.Item name="alltext" label="About the pet" rules={contentRules}>
-      {props.isNew? ( <TextArea rows={2}  />):( <TextArea rows={2} defaultValue={!props.isNew&&aa.alltext} />)}       
+      <Form.Item name="petsummary" label="About the pet" rules={contentRules}>
+      {props.isNew? ( <TextArea rows={2}  />):( <TextArea rows={2} defaultValue={!props.isNew&&aa.petsummary} />)}       
       </Form.Item>
       <Form.Item name="summary" label="Summary" >
       {props.isNew? ( <TextArea rows={2}  />):( <TextArea rows={2} defaultValue={!props.isNew&&aa.summary} />)}

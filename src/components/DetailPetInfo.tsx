@@ -13,7 +13,7 @@ import { getCurrentUser } from "../authent/auth.service";
 const DetailPetInfo = () => {
 const currentUser = getCurrentUser();
 const { aid } = useParams();
-const [petinfo, setPetinfo] = React.useState({id:0, petname:'', alltext:'', summary:'',imageurl:'', authorid:0, description:""}); 
+const [petinfo, setPetinfo] = React.useState({id:0, petname:'', petsummary:'', summary:'',imageurl:'', authorid:0, description:""}); 
 const navigate= useNavigate();
 const [loading, setLoading] = React.useState(true);
 const [theme, setTheme] = React.useState('outlined');
@@ -97,7 +97,7 @@ else {
               >               
                   <div> 
                     <h3>About me</h3>
-                    <p>{petinfo.alltext}</p>
+                    <p>{petinfo.petsummary}</p>
 
                     <h3>Detail Description</h3>
                     <p> {petinfo.description}</p>

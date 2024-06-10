@@ -16,6 +16,7 @@ import Register from './components/Register';
 
 import DetailPetInfo from './components/DetailPetInfo';
 import AboutUs from './components/AboutUs';
+import Profile from './components/Profile';
 
 //added
 // import { LogoutOutlined, HomeOutlined,DashboardOutlined,InfoCircleOutlined,HeartFilled } from '@ant-design/icons';
@@ -138,15 +139,16 @@ export default function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/:aid" element={<DetailPetInfo />} />
             <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/profile" element={<Profile />} />
 
             {/* 
             added
             <Route path="/about" element={<About />}  />
             <Route path="/:aid" element = {<DetailArticle /> } />  
             <Route path="/register" element={<Register />} /> 
-            
-            not added    
             <Route path="/profile" element={<Profile />} />
+            not added    
+            
             <Route path="/favpage" element={<FavPage />} />	 
 
             not add
