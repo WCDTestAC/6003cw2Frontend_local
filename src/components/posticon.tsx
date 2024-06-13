@@ -35,11 +35,10 @@ function getIcon (theme:any, iconType:any) {
     const navigate: NavigateFunction = useNavigate();
 
     const onclick = () =>{
-      //reverse the selected state with every click
     console.log('currentUser',  currentUser)
     
       if((!currentUser))
-        {alert("Pls. login to procceed this action")}
+        {alert("Please. Login for procceed this action")}
       else  
         if(props.type=='like')  {
           setSelected(!selected);
@@ -47,7 +46,6 @@ function getIcon (theme:any, iconType:any) {
         }
       else
         if(props.type=='heart') {
-          //setSelected(!selected);
           addFav();
           setSelected(!selected);
         }
@@ -76,11 +74,10 @@ function getIcon (theme:any, iconType:any) {
                 }
                 else{
                   alert("you have post like already")
-                //  console.log('responsejson.data.message ',responsejson.data.message)
                 }
         })
         .catch(err => {
-              console.log(`${props.type} Check network problems pls. ${props.id}`);
+              console.log(`${props.type} Check network problems please. ${props.id}`);
                 alert("Check network problems");
         })
       )
@@ -102,16 +99,15 @@ function getIcon (theme:any, iconType:any) {
         })   
             .then(responsejson =>{ if(responsejson.data.userid&&responsejson.data.message==="added")
             {
-            // console.log("message "+ responsejson.data.message) 
-             alert("Fav added")
+             alert("Favourite dog added")
              navigate("/favpage");
              window.location.reload();
             }
-               else(alert("you have add this Fav already"))
+               else(alert("you have add this dog to favourite already"))
             })
             .catch(err => {
             console.log('err ', err)
-            console.log(`${props.type} Check network problems pls. ${props.id}`);
+            console.log(`${props.type} Check network problems please. ${props.id}`);
             alert("Check network problems");
             })
       )

@@ -1,5 +1,3 @@
-//import React from 'react';
-//import Article from './petinfos';
 import PetInfo from './PetInfo';
 
 const Home = () => {

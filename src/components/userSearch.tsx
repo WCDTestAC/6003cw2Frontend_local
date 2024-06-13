@@ -6,7 +6,6 @@ import {Table,  Select,Col} from 'antd';
 import axios from 'axios';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 
-// import { Tag, Space } from 'antd';
 
 const { Column} = Table;
 const  { Search } = Input;

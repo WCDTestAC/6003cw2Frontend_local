@@ -1,6 +1,5 @@
 import 'antd/dist/reset.css';
 import React from 'react';
-// import UpdateForm from './UpdateForm';
 import UpdateForm from './UpdateForm';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button,Spin, Col, Card } from 'antd';

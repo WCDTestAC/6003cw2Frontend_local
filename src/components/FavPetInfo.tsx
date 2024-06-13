@@ -109,9 +109,9 @@ return resArr
       
         <Row gutter={[16,16]}>
           {
-            petinfos&& petinfos.map(({id, title, petsummary, imageurl, links})=> (
+            petinfos&& petinfos.map(({id, petname, imageurl, links})=> (
             <Col  key={id}>                            
-             <Card title={title} style={{width: 300}}
+             <Card title={petname} style={{width: 300}}
                    cover={<img alt="example" src={imageurl} />} hoverable
                    actions={[
                     <ShowComment    msgLink={links.msg} id={id}/>,

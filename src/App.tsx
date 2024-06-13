@@ -1,4 +1,3 @@
-//import './App.css';
 import 'antd/dist/reset.css';
 import { Layout, Space,Col, FloatButton} from 'antd';
 import { useState, useEffect } from "react";
@@ -18,27 +17,6 @@ import DetailPetInfo from './components/DetailPetInfo';
 import AboutUs from './components/AboutUs';
 import Profile from './components/Profile';
 import FavPage from './components/FavPets';
-
-//added
-// import { LogoutOutlined, HomeOutlined,DashboardOutlined,InfoCircleOutlined,HeartFilled } from '@ant-design/icons';
-// import * as AuthService from "./services/auth.service";
-// import UserType from './types/user.type';
-
-// import EventBus from "./components/common/EventBus";
-// import Login from "./components/Login";
-// import Register from "./components/Register";
-
-
-// //import Landing from "./components/Landing"
-
-// import Home from './components/Home';
-// import Dashboard from './components/Dashboard';
-// import About from './components/About';
-// import DetailArticle from './components/DetailArticle';
-// import Profile from './components/Profile';
-// import FavPage from './components/favpage';
-
-// import Copyright from './components/Copyright';
 
 const { Header, Content, Footer } = Layout;
 
@@ -83,10 +61,7 @@ export default function App() {
                     />
                 </Link>
                 <p></p>
-                {/* Dashboard icon to dashboard page */} 
-                {/* <Link to="/dashboard">
-                <DashboardOutlined style={{ fontSize: '32px', }}/>
-                </Link> */}
+
 
             
             </Space>
@@ -95,7 +70,6 @@ export default function App() {
             
             <nav style={{float:'right'}}>
                 {currentUser ? (
-                // if user is logged in
                 <div> 
                     <Space>   
                     
@@ -144,24 +118,6 @@ export default function App() {
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/favpage" element={<FavPage />} />	
-            {/* 
-            added
-            <Route path="/about" element={<About />}  />
-            <Route path="/:aid" element = {<DetailArticle /> } />  
-            <Route path="/register" element={<Register />} /> 
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/favpage" element={<FavPage />} />	
-            not added    
-            
-             
-
-            not add
-            <Route path="/dashboard" element={<Dashboard />}  />  
-            
-                     
-            
-            
-            */}
 
             </Routes>
         </Content>
@@ -173,7 +129,6 @@ export default function App() {
                 src="/src/assets/logo-black_small.png"
                 alt="profile-img"
                 className="profile-img-card"
-                //make the img in the middle
                 style={{display: 'block', marginLeft: 'auto', marginRight: 'auto'}}
             /> <p></p> <FooterContent />
         </Footer>
